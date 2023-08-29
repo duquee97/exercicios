@@ -1,2 +1,2 @@
-Repositório criado para alocar alguns codigos no
-para desenvolvimento de programas
+Repositório criado para alocar alguns codigos 
+utilizados no desenvolvimento de programas
