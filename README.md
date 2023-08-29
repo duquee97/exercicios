@@ -1,4 +1,2 @@
-TÍTULO
-primeira mudança
-segunda mudança
-terceira mudança na feature 2
+Repositório criado para alocar alguns codigos úteis 
+para desenvolvimento de programas
