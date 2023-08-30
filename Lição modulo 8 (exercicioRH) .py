@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[18]:
 
+#importar o sqlite3 - criação da tabela funcionários - definir as colunas 
 
 import sqlite3
 rh = sqlite3.connect('lição.db')
@@ -24,7 +24,7 @@ salario INTEGER NOT NULL);""")
 rh.commit()
 
 
-# In[19]:
+# criação da tabela departamentos - definir as colunas
 
 
 rh.execute("""CREATE TABLE Departamentos(
@@ -34,40 +34,39 @@ Localizaçao TEXT NOT NULL,
 Cod_Func_Ger INTEGER NOT NULL);""")
 rh.commit()
 
-
-# In[26]:
+#criar o cursor para execução de comandos
 
 
 cursor = rh.cursor()
 
 
-# In[22]:
+#Criar a aopção de deletar as tabelas para correções
 
 
-#para ter como opção
+#para ter como opção #Funcionários
 sql = """
-DROP TABLE Departamentos
+DROP TABLE Departamentos  
 """
 rh.execute(sql)
 rh.commit()
 print("tabela deletada")
 
 
-# In[33]:
+# Visualizar as tabela funcionarios
 
 
-for row in cursor.execute("SELECT * FROM Funcionarios"):
+for row in cursor.execute("SELECT * FROM Funcionarios"):  
     print(row)
 
 
-# In[31]:
+# Visualizar as tabela departamentos
 
 
 for row in cursor.execute("SELECT * FROM Departamentos"):
     print(row)
 
 
-# In[34]:
+#filtros
 
 
 cursor.execute("""SELECT primeiro_nome, ultimo_nome 
@@ -76,7 +75,7 @@ ORDER BY ultimo_nome""")
 print(cursor.fetchall())
 
 
-# In[36]:
+#filtros
 
 
 cursor.execute("""SELECT * FROM Funcionarios 
@@ -84,7 +83,7 @@ ORDER BY cidade""")
 print(cursor.fetchall())
 
 
-# In[38]:
+#filtros
 
 
 #mudança de 1000 para 4000 mil para facilitar a leitura
@@ -94,7 +93,7 @@ ORDER BY primeiro_nome, segundo_nome, ultimo_nome""")
 print(cursor.fetchall())
 
 
-# In[39]:
+#filtros
 
 
 cursor.execute("""SELECT data_nasci, primeiro_nome
@@ -103,7 +102,7 @@ ORDER BY data_nasci DESC""")
 print(cursor.fetchall())
 
 
-# In[40]:
+#filtros
 
 
 cursor.execute("""SELECT SUM(salario) 
@@ -111,7 +110,7 @@ FROM Funcionarios""")
 print(cursor.fetchall())
 
 
-# In[41]:
+#filtros
 
 
 cursor.execute("""SELECT Funcionarios.primeiro_nome, Departamentos.nome, 
@@ -122,7 +121,7 @@ ORDER BY Funcionarios.primeiro_nome""")
 print(cursor.fetchall())
 
 
-# In[42]:
+#filtros
 
 
 cursor.execute("""SELECT COUNT(*)
@@ -130,8 +129,7 @@ FROM Funcionarios""")
 print(cursor.fetchall())
 
 
-# In[43]:
-
+#filtros
 
 cursor.execute("""SELECT Departamentos.nome, Funcionarios.primeiro_nome
 FROM Departamentos JOIN 
@@ -141,7 +139,7 @@ ORDER BY Departamentos.nome, Funcionarios.primeiro_nome""")
 print(cursor.fetchall())
 
 
-# In[ ]:
+
 
 
 
